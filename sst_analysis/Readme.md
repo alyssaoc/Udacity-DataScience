@@ -18,7 +18,7 @@ https://console.cloud.google.com/marketplace/details/noaa-public/icoads?filter=c
 
 The source data for this analysis can be found on the Google Cloud Platform, Biq Query (https://console.cloud.google.com/marketplace/details/noaa-public/icoads?filter=category:science-research&id=23fff065-a7df-4ab5-a771-a41504773070). 
 
-I used the ICOADS data set from 1662-2017 to collect observed sea surface temperatures. All raw data files and the merged file are available in the /data folder. Observations without a sea surface temperature will not selected, as sea surface temperature is not easily inferred from other weather data. Observations were also parsed to a narrow geographic range between Savannah, GA and Myrtle Beach, SA for Lattitude 32-34 N and Longitude 79 to 81 W. Charleston, SC is located at 32.7765 N, 79.9311 W. 
+I used the NOAA ICOADS data set from 1662-2017 to collect observed sea surface temperatures. All raw data files and the merged file are available in the /data folder. Observations without a sea surface temperature will not selected, as sea surface temperature is not easily inferred from other weather data. Observations were also parsed to a narrow geographic range between Savannah, GA and Myrtle Beach, SA for Lattitude 32-34 N and Longitude 79 to 81 W. Charleston, SC is located at 32.7765 N, 79.9311 W. 
 
 ```
 #standardSQL
