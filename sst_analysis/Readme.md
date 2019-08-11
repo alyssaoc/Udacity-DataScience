@@ -11,17 +11,31 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-Give examples
+https://console.cloud.google.com/marketplace/details/noaa-public/icoads?filter=category:science-research&id=23fff065-a7df-4
 ```
 
-### Installing
+### Data
 
-A step by step series of examples that tell you how to get a development env running
+The source data for this analysis can be found on the Google Cloud Platform, Biq Query (https://console.cloud.google.com/marketplace/details/noaa-public/icoads?filter=category:science-research&id=23fff065-a7df-4ab5-a771-a41504773070). 
 
-Say what the step will be
+I used the ICOADS data set from 1662-2017 to collect observed sea surface temperatures. All raw data files and the merged file are available in the /data folder. Observations without a sea surface temperature will not selected, as sea surface temperature is not easily inferred from other weather data. Observations were also parsed to a narrow geographic range between Savannah, GA and Myrtle Beach, SA for Lattitude 32-34 N and Longitude 79 to 81 W. Charleston, SC is located at 32.7765 N, 79.9311 W. 
 
 ```
-Give the example
+#standardSQL
+SELECT 
+ timestamp, latitude, longitude, id_indicator, sst_measurement_method, sea_surface_temp
+FROM
+#  `bigquery-public-data.noaa_icoads.icoads_core_1662_2000`,
+  `bigquery-public-data.noaa_icoads.icoads_core_2017`
+  
+WHERE
+  latitude > 32
+  AND latitude < 34
+  AND longitude < -79
+  AND longitude > -81
+  AND sea_surface_temp IS NOT NULL;
+  
+  Data files were merged using cat *.csv command
 ```
 
 And repeat
